@@ -1,0 +1,32 @@
+# Dataset paths
+data:
+  train_dir: 'path/to/train'
+  val_dir: 'path/to/val'
+  test_dir: 'path/to/test'
+
+# Hyperparameters
+training:
+  batch_size: 8
+  num_epochs: 50
+  learning_rate: 1e-4
+  model_save_path: 'unet_brats.pth'
+
+# Data transforms
+transforms:
+  train:
+    - RandomHorizontalFlip
+    - RandomVerticalFlip
+    - RandomRotation: 15
+  val: []
+
+# Model configuration
+model:
+  in_channels: 4
+  out_channels: 3
+
+# Device configuration
+device: 'cuda'  # Use 'cpu' if no GPU is available
+
+# Output configuration
+output:
+  predictions_dir: 'predictions/'
